@@ -63,7 +63,7 @@ function App() {
 
 
         // for update connection in dummy array
-        
+
         let updateConnection = dummyArray.map((val) => {
           let key = Object.keys(val);
           // let str = val[key];
@@ -81,7 +81,7 @@ function App() {
       }
       else {
         let dummyArray = ConnectionArray
-        console.log(e.target.value, "jjj");
+
         // for update connection in dummy array
         let updateConnection = dummyArray.map((val) => {
           let key = Object.keys(val);
@@ -95,7 +95,7 @@ function App() {
             return val
           }
         })
-        console.log(updateConnection, 'updateConnectionmmmmmmmm');
+
         setConnectionArray([...updateConnection])
       }
     }
@@ -111,7 +111,7 @@ function App() {
 
     setTarget(filtereDdata)
   }
-
+  // -----------
   const isConnectionExist = () => {
     // for duplicate sourcedata
     let index1 = []
@@ -166,20 +166,42 @@ function App() {
     }
 
   }
-
+  // -----------------------
   const connectData = () => {
     isConnectionExist()
     setConnectionArray([...ConnectionArray, { [sourceRadio]: targetRadio }])
     setDrawRow(true)
   }
 
+// -------------singel Remove connection
+  const removeConnection = (e, index) => {
+    console.log(ConnectionArray, "ConnectionArray");
+    let targetVal = e.target.value;
+    let index2 = []
+    let DummyData = ConnectionArray.map((val) => {
+      let key = Object.keys(val);
+      let str = val[key];
+      return str
+    })
+    let isExistConnection1 = DummyData.includes(targetVal.toString());
+    
+    for (let i = 0; i < DummyData.length; i++) {
+      if (DummyData[i] === targetVal) {
+        index2 = [...index2, i]
+      }
+    }
+    console.log(index2, "jk");
+    if (isExistConnection1) {
+      let dummyArray = ConnectionArray
+      for (let i = 0; i < index2.length; i++) {
+        dummyArray.splice(index2[i], 1);
+      }
+      console.log(dummyArray,'dummyArray' , ConnectionArray);
+      setConnectionArray([...dummyArray])
+    }
+  }
+  
 
-
-  // const removeConnection = (e, index) => {
-  //   console.log(e.target.value, index, "index");
-  // }
-
-  console.log(ConnectionArray, "ConnectionArray");
   return (
     <>
       <div className='row' >
@@ -199,6 +221,7 @@ function App() {
                 <li className='childList'>Customer1-id</li>
                 <li className='childList'>Customer1-Name</li>
                 <li className='childList'>Customer1-Address</li>
+
               </ul>
             </div>
             {/* Customer 2 */}
@@ -250,6 +273,7 @@ function App() {
                     <li className='childList' style={{ marginLeft: "20px" }}>{val[1]}</li>
                     <li className='childList' style={{ marginLeft: "20px" }}>{val[2]}</li>
                     <li className='childList' style={{ marginLeft: "20px" }}>{val[3]}</li>
+                    <li style={{ marginLeft: "20px" }}><button id="removeConnection" value={index} onClick={(e) => { removeConnection(e, index) }}>!</button></li>
                   </ul>
                   {/* <button id="removeConnection" value={val} onClick={(e)=>{removeConnection(e ,index)}}>Remove Connection</button> */}
                 </div>
