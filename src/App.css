@@ -1,0 +1,99 @@
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+
+
+.row{
+    display:flex;
+    margin-top: 8%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 2%;
+    height: 65%;
+}
+
+.column{
+  flex:25%;
+  border: 1px solid #000;
+}
+
+.heading{
+  padding: 4px;
+  border: 1px solid #000 ;
+  margin: 0px !important;
+}
+
+/* .item{
+  margin: 12px;
+} */
+
+button , li {
+  display : inline
+
+}
+button{
+  border-radius: 50%;
+  border: none;
+  background-color: rgb(243, 191, 123);
+}
+
+.remove{
+  background-color: rgb(243, 74, 74);
+  font-size: 15px;
+}
+
+.blueButton{
+  border-radius: 0%;
+  padding: 10px 15px;
+  font-size: 15px;
+  font-weight: 500;
+  margin-left: 14%;
+}
+
+.childList{
+  display: block;
+}
+
+.radioButton{
+  margin-left: 34%;
+}
+
+#removeConnection{
+  border-radius:0% !important;
+}
